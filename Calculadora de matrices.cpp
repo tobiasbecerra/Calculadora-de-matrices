@@ -22,6 +22,27 @@ void cargar_matrices(int matriz[10][10], int segunda_matriz[10][10], int filas, 
 	}
 }
 
+void mostrar_matrices(int matriz[10][10], int segunda_matriz[10][10], int filas, int columnas) {
+	cout << "\nSu primera matriz ingresada es: " << endl;
+	for (int i = 0; i < filas; i++) {
+		cout << "| ";
+		for (int j = 0; j < columnas; j++) {
+			cout << matriz[i][j] << " ";
+		}
+		cout << "|";
+		cout << "\n";
+	}
+	cout << "\nSu segunda matriz ingresada es: " << endl;
+	for (int i = 0; i < filas; i++) {
+		cout << "| ";
+		for (int j = 0; j < columnas; j++) {
+			cout << segunda_matriz[i][j] << " ";
+		}
+		cout << "|";
+		cout << "\n";
+	}
+}
+
 int main() {
 
 	int matriz[10][10];
@@ -34,6 +55,7 @@ int main() {
 	cin >> columnas;
 
 	cargar_matrices(matriz, segunda_matriz, filas, columnas);
+	mostrar_matrices(matriz, segunda_matriz, filas, columnas);
 
 	return 0;
 }
