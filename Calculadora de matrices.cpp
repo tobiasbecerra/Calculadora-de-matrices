@@ -44,7 +44,26 @@ void mostrar_matrices(int matriz[10][10], int segunda_matriz[10][10], int filas,
 }
 
 void sumar_matrices(int matriz[10][10], int segunda_matriz[10][10], int filas, int columnas, int segunda_filas, int segunda_columnas) {
-
+	int matriz_sumada[10][10];
+	if (filas == segunda_filas && columnas == segunda_columnas) {
+		for (int i = 0; i < filas; i++) {
+			for (int j = 0; j < columnas; j++) {
+				matriz_sumada[i][j] = matriz[i][j] + segunda_matriz[i][j];
+			}
+		}
+		cout << "\nSu matriz sumada es: " << endl;
+		for (int i = 0; i < filas; i++) {
+			cout << "| ";
+			for (int j = 0; j < columnas; j++) {
+				cout << matriz_sumada[i][j] << " ";
+			}
+			cout << "|";
+			cout << "\n";
+		}
+	}
+	else {
+		cout << "\nNo se pueden sumar matrices de distinta dimension.";
+	}
 }
 
 int main() {
@@ -54,12 +73,12 @@ int main() {
 	int segunda_matriz[10][10];
 	int segunda_filas, segunda_columnas;
 
-	cout << "Ingrese la cantidad de FILAS y COLUMNAS que va a tener su primer matriz: " << endl;
+	cout << "Ingrese la cantidad de FILAS y COLUMNAS que va a tener su PRIMER matriz: " << endl;
 	cout << "FILAS: ";
 	cin >> filas;
 	cout << "COLUMNAS: ";
 	cin >> columnas;
-	cout << "Ingrese la cantidad de FILAS y COLUMNAS que va a tener su segunda matriz: " << endl;
+	cout << "\nIngrese la cantidad de FILAS y COLUMNAS que va a tener su SEGUNDA matriz: " << endl;
 	cout << "FILAS: ";
 	cin >> segunda_filas;
 	cout << "COLUMNAS: ";
@@ -68,5 +87,6 @@ int main() {
 	cargar_matrices(matriz, segunda_matriz, filas, columnas, segunda_filas, segunda_columnas);
 	mostrar_matrices(matriz, segunda_matriz, filas, columnas, segunda_filas, segunda_columnas);
 
+	sumar_matrices(matriz, segunda_matriz,filas, columnas, segunda_filas, segunda_columnas);
 	return 0;
 }
