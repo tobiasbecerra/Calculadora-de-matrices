@@ -66,7 +66,27 @@ void sumar_matrices(int matriz[10][10], int segunda_matriz[10][10], int filas, i
 	}
 }
 
-int main() {
+void restar_matrices(int matriz[10][10], int segunda_matriz[10][10], int filas, int columnas, int segunda_filas, int segunda_columnas) {
+	int matriz_restada[10][10];
+	if (filas == segunda_filas && columnas == segunda_columnas) {
+		for (int i = 0; i < filas; i++) {
+			for (int j = 0; j < columnas; j++) {
+				matriz_restada[i][j] = matriz[i][j] - segunda_matriz[i][j];
+			}
+		}
+		cout << "\nSu matriz restada es: " << endl;
+		for (int i = 0; i < filas; i++) {
+			cout << "| ";
+			for (int j = 0; j < columnas; j++) {
+				cout << matriz_restada[i][j] << " ";
+			}
+			cout << "|";
+			cout << "\n";
+		}
+	}
+}
+
+int main() { 
 
 	int matriz[10][10];
 	int filas, columnas;
@@ -88,5 +108,6 @@ int main() {
 	mostrar_matrices(matriz, segunda_matriz, filas, columnas, segunda_filas, segunda_columnas);
 
 	sumar_matrices(matriz, segunda_matriz,filas, columnas, segunda_filas, segunda_columnas);
+	restar_matrices(matriz, segunda_matriz, filas, columnas, segunda_filas, segunda_columnas);
 	return 0;
 }
