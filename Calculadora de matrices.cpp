@@ -53,20 +53,9 @@ int main() {
 	cin >> filas;
 	cout << "Ingrese la cantidad de COLUMNAS que va a tener su matriz: ";
 	cin >> columnas;
-	
-	cout << "Hola";
 
 	cargar_matrices(matriz, segunda_matriz, filas, columnas);
 	mostrar_matrices(matriz, segunda_matriz, filas, columnas);
 
 	return 0;
 }
-
-
-
-
-
-
-
-
-
