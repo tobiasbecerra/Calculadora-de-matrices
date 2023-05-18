@@ -43,6 +43,10 @@ void mostrar_matrices(int matriz[10][10], int segunda_matriz[10][10], int filas,
 	}
 }
 
+void sumar_matrices(int matriz[10][10], int segunda_matriz[10][10], int filas, int columnas) {
+
+}
+
 int main() {
 
 	int matriz[10][10];
