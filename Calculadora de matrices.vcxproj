@@ -129,6 +129,9 @@
   <ItemGroup>
     <ClCompile Include="Calculadora de matrices.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="funciones.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
