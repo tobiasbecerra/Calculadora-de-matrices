@@ -108,6 +108,28 @@ void escalar_matriz(int matriz[10][10], int filas, int columnas) {
 	}
 }
 
+void escalar_segundamatriz(int segunda_matriz[10][10], int segunda_filas, int segunda_columnas) {
+	int segundamatriz_escalar[10][10];
+	int escalar;
+	cout << "\nIngrese el escalar por el cual desea multiplicar su segunda matriz: ";
+	cin >> escalar;
+
+	for (int i = 0; i < segunda_filas; i++) {
+		for (int j = 0; j < segunda_columnas; j++) {
+			segundamatriz_escalar[i][j] = escalar * segunda_matriz[i][j];
+		}
+	}
+	cout << "\nSu matriz multiplicada por " << escalar << " es: " << endl;
+	for (int i = 0; i < segunda_filas; i++) {
+		cout << "| ";
+		for (int j = 0; j < segunda_columnas; j++) {
+			cout << segundamatriz_escalar[i][j] << " ";
+		}
+		cout << "|";
+		cout << "\n";
+	}
+}
+
 int main() { 
 
 	int matriz[10][10];
@@ -132,5 +154,6 @@ int main() {
 	sumar_matrices(matriz, segunda_matriz,filas, columnas, segunda_filas, segunda_columnas);
 	restar_matrices(matriz, segunda_matriz, filas, columnas, segunda_filas, segunda_columnas);
 	escalar_matriz(matriz, filas, columnas);
+	escalar_segundamatriz(segunda_matriz, segunda_filas, segunda_columnas);
 	return 0;
 }
