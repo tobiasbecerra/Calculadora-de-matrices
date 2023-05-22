@@ -69,3 +69,5 @@ int main() {
 }
 
 /*hola*/
+
+/*hola al cuadrado*/
