@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-void cargar_matrices(int matriz[10][10], int segunda_matriz[10][10], int filas, int columnas, int segunda_filas, int segunda_columnas) {
+void cargar_primer_matriz(int matriz[10][10], int filas, int columnas) {
 	cout << "\nCargue su primer matriz: " << endl;
 	for (int i = 0; i < filas; i++) {
 		for (int j = 0; j < columnas; j++) {
@@ -10,6 +10,9 @@ void cargar_matrices(int matriz[10][10], int segunda_matriz[10][10], int filas, 
 			cin >> matriz[i][j];
 		}
 	}
+}
+
+void cargar_segunda_matriz(int segunda_matriz[10][10], int segunda_filas, int segunda_columnas) {
 	cout << "\nCargue su segunda matriz: " << endl;
 	for (int i = 0; i < segunda_filas; i++) {
 		for (int j = 0; j < segunda_columnas; j++) {
@@ -19,7 +22,7 @@ void cargar_matrices(int matriz[10][10], int segunda_matriz[10][10], int filas, 
 	}
 }
 
-void mostrar_matrices(int matriz[10][10], int segunda_matriz[10][10], int filas, int columnas, int segunda_filas, int segunda_columnas) {
+void mostrar_primer_matriz(int matriz[10][10], int filas, int columnas) {
 	cout << "\nSu primera matriz ingresada es: " << endl;
 	for (int i = 0; i < filas; i++) {
 		cout << "| ";
@@ -29,6 +32,9 @@ void mostrar_matrices(int matriz[10][10], int segunda_matriz[10][10], int filas,
 		cout << "|";
 		cout << "\n";
 	}
+}
+
+void mostrar_segunda_matriz(int segunda_matriz[10][10], int segunda_filas, int segunda_columnas) {
 	cout << "\nSu segunda matriz ingresada es: " << endl;
 	for (int i = 0; i < segunda_filas; i++) {
 		cout << "| ";
@@ -40,7 +46,7 @@ void mostrar_matrices(int matriz[10][10], int segunda_matriz[10][10], int filas,
 	}
 }
 
-void sumar_matrices(int matriz[10][10], int segunda_matriz[10][10], int filas, int columnas, int segunda_filas, int segunda_columnas) {
+void sumar(int matriz[10][10], int segunda_matriz[10][10], int filas, int columnas, int segunda_filas, int segunda_columnas) {
 	int matriz_sumada[10][10];
 	if (filas == segunda_filas && columnas == segunda_columnas) {
 		for (int i = 0; i < filas; i++) {
@@ -63,7 +69,7 @@ void sumar_matrices(int matriz[10][10], int segunda_matriz[10][10], int filas, i
 	}
 }
 
-void restar_matrices(int matriz[10][10], int segunda_matriz[10][10], int filas, int columnas, int segunda_filas, int segunda_columnas) {
+void restar(int matriz[10][10], int segunda_matriz[10][10], int filas, int columnas, int segunda_filas, int segunda_columnas) {
 	int matriz_restada[10][10];
 	if (filas == segunda_filas && columnas == segunda_columnas) {
 		for (int i = 0; i < filas; i++) {
@@ -83,21 +89,33 @@ void restar_matrices(int matriz[10][10], int segunda_matriz[10][10], int filas, 
 	}
 }
 
-void escalar_matriz(int matriz[10][10], int filas, int columnas) {
+void escalar() {
 	int matriz_escalar[10][10];
-	int escalar;
-	cout << "\nIngrese el escalar por el cual desea multiplicar su primer matriz: ";
-	cin >> escalar;
+	int escalar, filasesc, columnasesc;
 
-	for (int i = 0; i < filas; i++) {
-		for (int j = 0; j < columnas; j++) {
-			matriz_escalar[i][j] = escalar * matriz[i][j];
+	cout << "FILAS de su matriz: ";
+	cin >> filasesc;
+	cout << "COLUMNAS de su matriz: ";
+	cin >> columnasesc;
+
+	cout << "\nCargue la matriz: " << endl;
+	for (int i = 0; i < filasesc; i++) {
+		for (int j = 0; j < columnasesc; j++) {
+			cout << "Digite un numero [" << i + 1 << "][" << j + 1 << "]: ";
+			cin >> matriz_escalar[i][j];
+		}
+	}
+	cout << "\nIngrese el escalar por el cual desea multiplicar la matriz: ";
+	cin >> escalar;
+	for (int i = 0; i < filasesc; i++) {
+		for (int j = 0; j < columnasesc; j++) {
+			matriz_escalar[i][j] = escalar * matriz_escalar[i][j];
 		}
 	}
 	cout << "\nSu matriz multiplicada por " << escalar << " es: " << endl;
-	for (int i = 0; i < filas; i++) {
+	for (int i = 0; i < filasesc; i++) {
 		cout << "| ";
-		for (int j = 0; j < columnas; j++) {
+		for (int j = 0; j < columnasesc; j++) {
 			cout << matriz_escalar[i][j] << " ";
 		}
 		cout << "|";
@@ -105,29 +123,7 @@ void escalar_matriz(int matriz[10][10], int filas, int columnas) {
 	}
 }
 
-void escalar_segundamatriz(int segunda_matriz[10][10], int segunda_filas, int segunda_columnas) {
-	int segundamatriz_escalar[10][10];
-	int escalar;
-	cout << "\nIngrese el escalar por el cual desea multiplicar su segunda matriz: ";
-	cin >> escalar;
-
-	for (int i = 0; i < segunda_filas; i++) {
-		for (int j = 0; j < segunda_columnas; j++) {
-			segundamatriz_escalar[i][j] = escalar * segunda_matriz[i][j];
-		}
-	}
-	cout << "\nSu matriz multiplicada por " << escalar << " es: " << endl;
-	for (int i = 0; i < segunda_filas; i++) {
-		cout << "| ";
-		for (int j = 0; j < segunda_columnas; j++) {
-			cout << segundamatriz_escalar[i][j] << " ";
-		}
-		cout << "|";
-		cout << "\n";
-	}
-}
-
-void inversa(int matriz[10][10], int filas, int columnas, int segunda_filas, int segunda_columnas) {
+void matriz_inversa(int matriz[10][10], int filas, int columnas, int segunda_filas, int segunda_columnas) {
 	float matrizcofactores[3][3];
 	float matrizadjunta[3][3];
 	int inversa[3][3];
@@ -222,5 +218,4 @@ void inversa(int matriz[10][10], int filas, int columnas, int segunda_filas, int
 	else {
 		cout << "\nLa matriz ingresada no tiene inversa. \n";
 	}
-
 }
