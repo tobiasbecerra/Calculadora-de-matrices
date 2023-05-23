@@ -20,7 +20,7 @@ int main() {
 
 	do {
 		cout << "\n\t\t\tMenu" << endl;
-		cout << "\t1. Cargar filas y columnas (suma, resta)" << endl;
+		cout << "\t1. Cargar filas y columnas (para la suma y la resta entre matrices de MISMA DIMENSION)" << endl;
 		cout << "\t2. Sumar matrices" << endl;
 		cout << "\t3. Restar matrices" << endl;
 		cout << "\t4. Multiplicar matrices por un escalar" << endl;
@@ -44,23 +44,35 @@ int main() {
 			cin >> segunda_columnas;
 			break;
 		case 2:
-			cargar_primer_matriz(matriz, filas, columnas);
-			cargar_segunda_matriz(segunda_matriz, segunda_filas, segunda_columnas);
-			mostrar_primer_matriz(matriz, filas, columnas);
-			mostrar_segunda_matriz(segunda_matriz, segunda_filas, segunda_columnas);
-			sumar(matriz, segunda_matriz, filas, columnas, segunda_columnas, segunda_filas);
+			if (filas == segunda_filas && columnas == segunda_columnas) {
+				cargar_primer_matriz(matriz, filas, columnas);
+				cargar_segunda_matriz(segunda_matriz, segunda_filas, segunda_columnas);
+				mostrar_primer_matriz(matriz, filas, columnas);
+				mostrar_segunda_matriz(segunda_matriz, segunda_filas, segunda_columnas);
+				sumar(matriz, segunda_matriz, filas, columnas, segunda_columnas, segunda_filas);
+			}
+			else {
+				cout << "\nNo se puede sumar matrices de distinta dimension.";
+			}	
 			break;
 		case 3:
-			cargar_primer_matriz(matriz, filas, columnas);
-			cargar_segunda_matriz(segunda_matriz, segunda_filas, segunda_columnas);
-			mostrar_primer_matriz(matriz, filas, columnas);
-			mostrar_segunda_matriz(segunda_matriz, segunda_filas, segunda_columnas);
-			restar(matriz, segunda_matriz, filas, columnas, segunda_columnas, segunda_filas);
+			if (filas == segunda_filas && columnas == segunda_columnas) {
+				cargar_primer_matriz(matriz, filas, columnas);
+				cargar_segunda_matriz(segunda_matriz, segunda_filas, segunda_columnas);
+				mostrar_primer_matriz(matriz, filas, columnas);
+				mostrar_segunda_matriz(segunda_matriz, segunda_filas, segunda_columnas);
+				restar(matriz, segunda_matriz, filas, columnas, segunda_columnas, segunda_filas);
+			}
+			else {
+				cout << "\nNo se pueden restar matrices de distinta dimension.";
+			}
 			break;
 		case 4:
 			escalar();
 			break;
 		case 5:
+			break;
+		case 6:
 			break;
 		}
 	} while (opc != 7);
