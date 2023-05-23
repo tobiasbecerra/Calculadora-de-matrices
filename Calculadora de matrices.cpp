@@ -1,9 +1,12 @@
-/*
+﻿/*
 	Calculadora de matrices - Parcial 2 Introduccion a la programacion
 */
 
 #include <iostream>
 #include "funciones.h"
+#include <fstream>
+
+#include <string>
 using namespace std;
 
 int main() { 
@@ -27,6 +30,15 @@ int main() {
 	int opc;
 
 	do {
+		
+		cout << "  #####                                                                                                                                              " << endl;
+		cout << " #     #   ##   #       ####  #    # #        ##   #####   ####  #####    ##      #####  ######    #    #   ##   ##### #####  #  ####  ######  ####  " << endl;
+		cout << " #        #  #  #      #    # #    # #       #  #  #    # #    # #    #  #  #     #    # #         ##  ##  #  #    #   #    # # #    # #      #      " << endl;
+		cout << " #       #    # #      #      #    # #      #    # #    # #    # #    # #    #    #    # #####     # ## # #    #   #   #    # # #      #####   ####  " << endl;
+		cout << " #       ###### #      #      #    # #      ###### #    # #    # #####  ######    #    # #         #    # ######   #   #####  # #      #           # " << endl;
+		cout << " #     # #    # #      #    # #    # #      #    # #    # #    # #   #  #    #    #    # #         #    # #    #   #   #   #  # #    # #      #    # " << endl;
+		cout << "  #####  #    # ######  ####   ####  ###### #    # #####   ####  #    # #    #    #####  ######    #    # #    #   #   #    # #  ####  ######  ####  " << endl;
+		cout << " " << endl;
 		cout << "\t\t\tMenu" << endl;
 		cout << "\t1. Sumar matrices" << endl;
 		cout << "\t2. Restar matrices" << endl;
