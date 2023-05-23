@@ -123,7 +123,7 @@ void escalar() {
 	}
 }
 
-void matriz_inversa(int matriz[10][10], int filas, int columnas, int segunda_filas, int segunda_columnas) {
+void matriz_inversa3x3(int matriz[10][10], int filas, int columnas, int segunda_filas, int segunda_columnas) {
 	float matrizcofactores[3][3];
 	float matrizadjunta[3][3];
 	int inversa[3][3];
