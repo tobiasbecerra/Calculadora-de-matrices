@@ -142,7 +142,76 @@ void matriz_inversa() {
 	cout << "COLUMNAS de su matriz: ";
 	cin >> columnas;
 	if (filas == 2 && columnas == 2) {
+		cout << "\nCargue su matriz: " << endl;
+		for (int i = 0; i < 2; i++) {
+			for (int j = 0; j < 2; j++) {
+				cout << "Digite un numero [" << i + 1 << "][" << j + 1 << "]: ";
+				cin >> matriz[i][j];
+			}
+		}
 
+		//determinante por sarrus
+
+		float determinante = matriz[0][0] * matriz[1][1] - matriz[0][1] * matriz[1][0];
+
+		if (determinante < 0) {
+			determinante = determinante * (-1);
+		}
+
+		float matriz_inversa[2][2];
+
+		//calcular 1/det 
+
+		float det = 1 / determinante;
+
+		//modificar matriz para poder hacer la inversa
+
+		float matrizmodificada[2][2];
+
+		for (int i = 0; i < 2; i++) {
+			for (int j = 0; j < 2; j++) {
+				matrizmodificada[i][j] = matriz[i][j];
+			}
+		}
+
+		float auxiliar;
+
+		auxiliar = matrizmodificada[0][0];
+		matrizmodificada[0][0] = matrizmodificada[1][1];
+		matrizmodificada[1][1] = auxiliar;
+		matrizmodificada[0][1] = matrizmodificada[0][1] * -1;
+		matrizmodificada[1][0] = matrizmodificada[1][0] * -1;
+
+		//mostrar matriz que ingreso el usuario
+		cout << "Matriz ingresada:" << endl;
+		for (int i = 0; i < 2; i++) {
+			for (int j = 0; j < 2; j++) {
+				cout << matriz[i][j] << " ";
+			}
+			cout << "\n";
+		}
+
+		/*
+		* Calcular inversa si el determinante es distinto de cero, si el determinante es cero se muestra un mensaje
+		* indicando que la matriz no tiene inversa.
+		*/
+		if (det != 0) {
+			for (int i = 0; i < 2; i++) {
+				for (int j = 0; j < 2; j++) {
+					matriz_inversa[i][j] = matrizmodificada[i][j] * det;
+				}
+			}
+			cout << "Matriz Inversa" << endl;
+			for (int i = 0; i < 2; i++) {
+				for (int j = 0; j < 2; j++) {
+					cout << matriz_inversa[j][i] << " ";
+				}
+				cout << "\n";
+			}
+		}
+		else {
+			cout << "\nLa matriz ingresada no tiene inversa. \n";
+		}
 	}
 	if (filas == 3 && columnas == 3) {
 		cout << "\nCargue su matriz: " << endl;
