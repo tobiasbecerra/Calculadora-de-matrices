@@ -46,9 +46,27 @@ void mostrar_segunda_matriz(int segunda_matriz[10][10], int segunda_filas, int s
 	}
 }
 
-void sumar(int matriz[10][10], int segunda_matriz[10][10], int filas, int columnas, int segunda_filas, int segunda_columnas) {
+void sumar(int matriz[10][10], int segunda_matriz[10][10]) {
 	int matriz_sumada[10][10];
-	if (filas == segunda_filas && columnas == segunda_columnas) {
+	int filas, columnas, segunda_filas, segunda_columnas;
+	
+	cout << "\nIngrese la cantidad de FILAS y COLUMNAS que va a tener su PRIMER matriz: " << endl;
+	cout << "FILAS: ";
+	cin >> filas;
+	cout << "COLUMNAS: ";
+	cin >> columnas;
+	cout << "\nIngrese la cantidad de FILAS y COLUMNAS que va a tener su SEGUNDA matriz: " << endl;
+	cout << "FILAS: ";
+	cin >> segunda_filas;
+	cout << "COLUMNAS: ";
+	cin >> segunda_columnas;
+
+	if (filas != segunda_filas && columnas != segunda_columnas) {
+		cout << "\nNo se pueden sumar matrices de distinta dimension." << endl;
+	}
+	else {
+		cargar_primer_matriz(matriz, filas, columnas);
+		cargar_segunda_matriz(segunda_matriz, segunda_filas, segunda_columnas);
 		for (int i = 0; i < filas; i++) {
 			for (int j = 0; j < columnas; j++) {
 				matriz_sumada[i][j] = matriz[i][j] + segunda_matriz[i][j];
@@ -64,14 +82,29 @@ void sumar(int matriz[10][10], int segunda_matriz[10][10], int filas, int column
 			cout << "\n";
 		}
 	}
-	else {
-		cout << "\nNo se pueden sumar matrices de distinta dimension.";
-	}
 }
 
-void restar(int matriz[10][10], int segunda_matriz[10][10], int filas, int columnas, int segunda_filas, int segunda_columnas) {
+void restar(int matriz[10][10], int segunda_matriz[10][10]) {
 	int matriz_restada[10][10];
-	if (filas == segunda_filas && columnas == segunda_columnas) {
+	int filas, columnas, segunda_filas, segunda_columnas;
+
+	cout << "\nIngrese la cantidad de FILAS y COLUMNAS que va a tener su PRIMER matriz: " << endl;
+	cout << "FILAS: ";
+	cin >> filas;
+	cout << "COLUMNAS: ";
+	cin >> columnas;
+	cout << "\nIngrese la cantidad de FILAS y COLUMNAS que va a tener su SEGUNDA matriz: " << endl;
+	cout << "FILAS: ";
+	cin >> segunda_filas;
+	cout << "COLUMNAS: ";
+	cin >> segunda_columnas;
+
+	if (filas != segunda_filas && columnas != segunda_columnas) {
+		cout << "\nNo se pueden restar matrices de distinta dimension." << endl;
+	}
+	else {
+		cargar_primer_matriz(matriz, filas, columnas);
+		cargar_segunda_matriz(segunda_matriz, segunda_filas, segunda_columnas);
 		for (int i = 0; i < filas; i++) {
 			for (int j = 0; j < columnas; j++) {
 				matriz_restada[i][j] = matriz[i][j] - segunda_matriz[i][j];
