@@ -22,30 +22,6 @@ void cargar_segunda_matriz(int segunda_matriz[10][10], int segunda_filas, int se
 	}
 }
 
-void mostrar_primer_matriz(int matriz[10][10], int filas, int columnas) {
-	cout << "\nSu primera matriz ingresada es: " << endl;
-	for (int i = 0; i < filas; i++) {
-		cout << "| ";
-		for (int j = 0; j < columnas; j++) {
-			cout << matriz[i][j] << " ";
-		}
-		cout << "|";
-		cout << "\n";
-	}
-}
-
-void mostrar_segunda_matriz(int segunda_matriz[10][10], int segunda_filas, int segunda_columnas) {
-	cout << "\nSu segunda matriz ingresada es: " << endl;
-	for (int i = 0; i < segunda_filas; i++) {
-		cout << "| ";
-		for (int j = 0; j < segunda_columnas; j++) {
-			cout << segunda_matriz[i][j] << " ";
-		}
-		cout << "|";
-		cout << "\n";
-	}
-}
-
 void sumar(int matriz[10][10], int segunda_matriz[10][10]) {
 	int matriz_sumada[10][10];
 	int filas, columnas, segunda_filas, segunda_columnas;
