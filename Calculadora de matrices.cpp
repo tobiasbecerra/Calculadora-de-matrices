@@ -40,6 +40,7 @@ int main() {
 			escalar();
 			break;
 		case 4:
+			matriz_inversa();
 			break;
 		case 5:
 			break;
