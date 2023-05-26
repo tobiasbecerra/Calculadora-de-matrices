@@ -141,6 +141,7 @@ void matriz_inversa() {
 	cin >> filas;
 	cout << "COLUMNAS de su matriz: ";
 	cin >> columnas;
+	//comienzo inversa 2x2
 	if (filas == 2 && columnas == 2) {
 		cout << "\nCargue su matriz: " << endl;
 		for (int i = 0; i < 2; i++) {
@@ -179,8 +180,8 @@ void matriz_inversa() {
 		auxiliar = matrizmodificada[0][0];
 		matrizmodificada[0][0] = matrizmodificada[1][1];
 		matrizmodificada[1][1] = auxiliar;
-		matrizmodificada[0][1] = matrizmodificada[0][1] * -1;
-		matrizmodificada[1][0] = matrizmodificada[1][0] * -1;
+		matrizmodificada[0][1] = -matrizmodificada[0][1];
+		matrizmodificada[1][0] = -matrizmodificada[1][0];
 
 		//mostrar matriz que ingreso el usuario
 		cout << "Matriz ingresada:" << endl;
@@ -191,6 +192,12 @@ void matriz_inversa() {
 			cout << "\n";
 		}
 
+		float matrizadjunta2x2[2][2];
+		for (int i = 0; i < 2; i++) {
+			for (int j = 0; j < 2; j++) {
+				matrizadjunta2x2[i][j] = matrizmodificada[j][i];
+			}
+		}
 		/*
 		* Calcular inversa si el determinante es distinto de cero, si el determinante es cero se muestra un mensaje
 		* indicando que la matriz no tiene inversa.
@@ -198,13 +205,13 @@ void matriz_inversa() {
 		if (det != 0) {
 			for (int i = 0; i < 2; i++) {
 				for (int j = 0; j < 2; j++) {
-					matriz_inversa[i][j] = matrizmodificada[i][j] * det;
+					matriz_inversa[i][j] = matrizadjunta2x2[i][j] * -det;
 				}
 			}
 			cout << "Matriz Inversa" << endl;
 			for (int i = 0; i < 2; i++) {
 				for (int j = 0; j < 2; j++) {
-					cout << matriz_inversa[j][i] << " ";
+					cout << matriz_inversa[j][i] << "  ";
 				}
 				cout << "\n";
 			}
@@ -212,6 +219,8 @@ void matriz_inversa() {
 		else {
 			cout << "\nLa matriz ingresada no tiene inversa. \n";
 		}
+
+		// fin inversa 2x2
 	}
 	if (filas == 3 && columnas == 3) {
 		cout << "\nCargue su matriz: " << endl;
