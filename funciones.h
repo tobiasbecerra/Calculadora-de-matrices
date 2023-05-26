@@ -134,7 +134,7 @@ void escalar() {
 
 void matriz_inversa() {
 	float matrizcofactores[3][3], matrizadjunta[3][3];
-	int inversa[3][3], matriz[10][10];
+	int matriz[10][10];
 	int filas, columnas;
 
 	cout << "FILAS de su matriz: ";
