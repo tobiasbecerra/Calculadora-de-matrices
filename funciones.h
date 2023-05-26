@@ -37,7 +37,7 @@ void sumar(int matriz[10][10], int segunda_matriz[10][10]) {
 	cout << "COLUMNAS: ";
 	cin >> segunda_columnas;
 
-	if (filas != segunda_filas && columnas != segunda_columnas) {
+	if (filas != segunda_filas || columnas != segunda_columnas) {
 		cout << "\nNo se pueden sumar matrices de distinta dimension." << endl;
 	}
 	else {
@@ -75,7 +75,7 @@ void restar(int matriz[10][10], int segunda_matriz[10][10]) {
 	cout << "COLUMNAS: ";
 	cin >> segunda_columnas;
 
-	if (filas != segunda_filas && columnas != segunda_columnas) {
+	if (filas != segunda_filas || columnas != segunda_columnas) {
 		cout << "\nNo se pueden restar matrices de distinta dimension." << endl;
 	}
 	else {
@@ -211,7 +211,7 @@ void matriz_inversa() {
 			cout << "Matriz Inversa" << endl;
 			for (int i = 0; i < 2; i++) {
 				for (int j = 0; j < 2; j++) {
-					cout << matriz_inversa[j][i] << "  ";
+					cout << matriz_inversa[j][i] << " ";
 				}
 				cout << "\n";
 			}
