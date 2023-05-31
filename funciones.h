@@ -327,22 +327,22 @@ void sistema() {
 	cin >> y1;
 	cout << "z1: ";
 	cin >> z1;
+	cout << "Ingrese el resultado de su primer ecuacion: ";
+	cin >> s1;
 	cout << "x2: ";
 	cin >> x2;
 	cout << "y2: ";
 	cin >> y2;
 	cout << "z2: ";
 	cin >> z2;
+	cout << "Ingrese el resultado de su segunda ecuacion: ";
+	cin >> s2;
 	cout << "x3: ";
 	cin >> x3;
 	cout << "y3: ";
 	cin >> y3;
 	cout << "z3: ";
 	cin >> z3;
-	cout << "Ingrese el resultado de su primer ecuacion: ";
-	cin >> s1;
-	cout << "Ingrese el resultado de su segunda ecuacion: ";
-	cin >> s2;
 	cout << "Ingrese el resultado de su tercer ecuacion: ";
 	cin >> s3;
 
@@ -352,7 +352,7 @@ void sistema() {
 	delta_y = ((x1*s2*z3) + (x2*s3*z1) + (x3*s1*z2) - (z1*s2*x3) + (z2*s3*x1) + (z3*s1*x2));
 	delta_z = ((x1*y2*s3) + (x2*y3*s1) + (x3*y1*s2) - (s1*y2*x3) + (s2*y3*x1) + (s3*y1*x2));
 
-	if (delta_s || delta_x || delta_y || delta_z == 0) {
+	if (delta_s && delta_x && delta_y && delta_z != 0) {
 		cout << "El sistema no tiene solucion." << endl;
 	}
 	else {
