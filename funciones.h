@@ -339,7 +339,7 @@ void sistema() {
 
 
 
-	cout << "Primera ecuacion: ";
+	cout << "Primera ecuacion: "<<endl;
 	cout << "x1: ";
 	cin >> x1;
 	cout << "y1: ";
@@ -348,7 +348,7 @@ void sistema() {
 	cin >> z1;
 	cout << x1 << "x " << signonum(y1) << " " << y1 << "y " << signonum(z1) << " " << z1 << "z = ";
 	cin >> s1;
-	cout << "Segunda ecuacion: ";
+	cout << "Segunda ecuacion: "<<endl;
 	cout << "x2: ";
 	cin >> x2;
 	cout << "y2: ";
@@ -357,7 +357,7 @@ void sistema() {
 	cin >> z2;
 	cout << x2 << "x " << signonum(y2) << " " << y2 << "y " << signonum(z2) << " " << z2 << "z = ";
 	cin >> s2;
-	cout << "Tercera ecuacion: ";
+	cout << "Tercera ecuacion: "<<endl;
 	cout << "x3: ";
 	cin >> x3;
 	cout << "y3: ";
