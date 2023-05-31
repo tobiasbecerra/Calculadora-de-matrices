@@ -327,7 +327,6 @@ char signonum(int n) {
 	else {
 		signo = '+';
 	}
-
 	return signo;
 }
 
@@ -346,7 +345,7 @@ void sistema() {
 	cin >> y1;
 	cout << "z1: ";
 	cin >> z1;
-	cout << x1 << "x " << signonum(y1) << " " << y1 << "y " << signonum(z1) << " " << z1 << "z = ";
+	cout << x1 << "x " << signonum(y1) << " " << abs(y1) << "y " << signonum(z1) << " " << abs(z1) << "z = ";
 	cin >> s1;
 	cout << "Segunda ecuacion: "<<endl;
 	cout << "x2: ";
@@ -355,7 +354,7 @@ void sistema() {
 	cin >> y2;
 	cout << "z2: ";
 	cin >> z2;
-	cout << x2 << "x " << signonum(y2) << " " << y2 << "y " << signonum(z2) << " " << z2 << "z = ";
+	cout << x2 << "x " << signonum(y2) << " " << abs(y2) << "y " << signonum(z2) << " " << abs(z2) << "z = ";
 	cin >> s2;
 	cout << "Tercera ecuacion: "<<endl;
 	cout << "x3: ";
@@ -364,8 +363,13 @@ void sistema() {
 	cin >> y3;
 	cout << "z3: ";
 	cin >> z3;
-	cout << x3 << "x " << signonum(y3) << " " << y3 << "y " << signonum(z3) << " " << z3 << "z = ";
+	cout << x3 << "x " << signonum(y3) << " " << abs(y3) << "y " << signonum(z3) << " " << abs(z3) << "z = ";
 	cin >> s3;
+
+	cout << "\n";
+	cout << x1 << "x " << signonum(y1) << " " << abs(y1) << "y " << signonum(z1) << " " << abs(z1) << "z = " << s1;
+	cout << x2 << "x " << signonum(y2) << " " << abs(y2) << "y " << signonum(z2) << " " << abs(z2) << "z = " << s2;
+	cout << x3 << "x " << signonum(y3) << " " << abs(y3) << "y " << signonum(z3) << " " << abs(z3) << "z = " << s3<<endl;
 
 	delta_s = ((x1 * y2 * z3) + (x2 * y3 * z1) + (x3 * y1 * z2) - (z1 * y2 * x3) - (z2 * y3 * x1) - (z3 * y1 * x2));
 	delta_x = ((s1 * y2 * z3) + (s2 * y3 * z1) + (s3 * y1 * z2) - (z1 * y2 * s3) - (z2 * y3 * s1) - (z3 * y1 * s2));
