@@ -348,7 +348,21 @@ void sistema() {
 
 
 	delta_s = ((x1*y2*z3) + (x2*y3*z1) + (x3*y1*z2) - (z1*y2*x3) + (z2*y3*x1) + (z3*y1*x2));
-	delta_x = (s1);
+	delta_x = ((s1*y2*z3) + (s2*y3*z1) + (s3*y1*z2) - (z1*y2*s3) + (z2*y3*s1) + (z3*y1*s2));
+	delta_y = ((x1*s2*z3) + (x2*s3*z1) + (x3*s1*z2) - (z1*s2*x3) + (z2*s3*x1) + (z3*s1*x2));
+	delta_z = ((x1*y2*s3) + (x2*y3*s1) + (x3*y1*s2) - (s1*y2*x3) + (s2*y3*x1) + (s3*y1*x2));
+
+	if (delta_s || delta_x || delta_y || delta_z == 0) {
+		cout << "El sistema no tiene solucion." << endl;
+	}
+	else {
+		cout << "Solucion de x: ";
+		cout << delta_x / delta_s;
+		cout << "Solucion de y: ";
+		cout << delta_y / delta_s;
+		cout << "Solucion de z: ";
+		cout << delta_z / delta_s;
+	}
 
 
 }

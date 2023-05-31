@@ -43,7 +43,7 @@ int main() {
 			matriz_inversa();
 			break;
 		case 5:
-			break;
+			sistema();
 		}
 	} while (opc != 6);
 	
