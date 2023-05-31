@@ -134,8 +134,8 @@ void escalar() {
 
 void matriz_inversa() {
 	float matrizcofactores[3][3], matrizadjunta[3][3];
-	int matriz[10][10];
-	int filas, columnas;
+	float matriz[10][10];
+	float filas, columnas;
 
 	cout << "FILAS de su matriz: ";
 	cin >> filas;
@@ -316,53 +316,78 @@ void matriz_inversa() {
 	}
 }
 
+char signonum(int n) {
+	char signo;
+	if (n > 0) {
+		signo = '+';
+	}
+	else if (n < 0) {
+		signo = '-';
+	}
+	else {
+		signo = '+';
+	}
+
+	return signo;
+}
+
+
 void sistema() {
 
-	int sistema[3][4];
-	int x1, y1, z1, x2, y2, z2, x3, y3, z3, s1, s2, s3;
-	int delta_s, delta_x, delta_y, delta_z;
+	float x1, y1, z1, x2, y2, z2, x3, y3, z3, s1, s2, s3;
+	float delta_s, delta_x, delta_y, delta_z;
+
+
+
+	cout << "Primera ecuacion: ";
 	cout << "x1: ";
 	cin >> x1;
 	cout << "y1: ";
 	cin >> y1;
 	cout << "z1: ";
 	cin >> z1;
-	cout << "Ingrese el resultado de su primer ecuacion: ";
+	cout << x1 << "x " << signonum(y1) << " " << y1 << "y " << signonum(z1) << " " << z1 << "z = ";
 	cin >> s1;
+	cout << "Segunda ecuacion: ";
 	cout << "x2: ";
 	cin >> x2;
 	cout << "y2: ";
 	cin >> y2;
 	cout << "z2: ";
 	cin >> z2;
-	cout << "Ingrese el resultado de su segunda ecuacion: ";
+	cout << x2 << "x " << signonum(y2) << " " << y2 << "y " << signonum(z2) << " " << z2 << "z = ";
 	cin >> s2;
+	cout << "Tercera ecuacion: ";
 	cout << "x3: ";
 	cin >> x3;
 	cout << "y3: ";
 	cin >> y3;
 	cout << "z3: ";
 	cin >> z3;
-	cout << "Ingrese el resultado de su tercer ecuacion: ";
+	cout << x3 << "x " << signonum(y3) << " " << y3 << "y " << signonum(z3) << " " << z3 << "z = ";
 	cin >> s3;
 
+	delta_s = ((x1 * y2 * z3) + (x2 * y3 * z1) + (x3 * y1 * z2) - (z1 * y2 * x3) - (z2 * y3 * x1) - (z3 * y1 * x2));
+	delta_x = ((s1 * y2 * z3) + (s2 * y3 * z1) + (s3 * y1 * z2) - (z1 * y2 * s3) - (z2 * y3 * s1) - (z3 * y1 * s2));
+	delta_y = ((x1 * s2 * z3) + (x2 * s3 * z1) + (x3 * s1 * z2) - (z1 * s2 * x3) - (z2 * s3 * x1) - (z3 * s1 * x2));
+	delta_z = ((x1 * y2 * s3) + (x2 * y3 * s1) + (x3 * y1 * s2) - (s1 * y2 * x3) - (s2 * y3 * x1) - (s3 * y1 * x2));
 
-	delta_s = ((x1*y2*z3) + (x2*y3*z1) + (x3*y1*z2) - (z1*y2*x3) + (z2*y3*x1) + (z3*y1*x2));
-	delta_x = ((s1*y2*z3) + (s2*y3*z1) + (s3*y1*z2) - (z1*y2*s3) + (z2*y3*s1) + (z3*y1*s2));
-	delta_y = ((x1*s2*z3) + (x2*s3*z1) + (x3*s1*z2) - (z1*s2*x3) + (z2*s3*x1) + (z3*s1*x2));
-	delta_z = ((x1*y2*s3) + (x2*y3*s1) + (x3*y1*s2) - (s1*y2*x3) + (s2*y3*x1) + (s3*y1*x2));
+	if (delta_s != 0) {
+		cout << "Solucion de x: ";
+		cout << delta_x / delta_s << endl;
+		cout << "Solucion de y: ";
+		cout << delta_y / delta_s << endl;
+		cout << "Solucion de z: ";
+		cout << delta_z / delta_s << endl;
 
-	if (delta_s && delta_x && delta_y && delta_z != 0) {
-		cout << "El sistema no tiene solucion." << endl;
 	}
 	else {
-		cout << "Solucion de x: ";
-		cout << delta_x / delta_s;
-		cout << "Solucion de y: ";
-		cout << delta_y / delta_s;
-		cout << "Solucion de z: ";
-		cout << delta_z / delta_s;
+		if (delta_x == 0 && delta_y == 0 && delta_z == 0) {
+			cout << "\nEl sistema tiene infinitas soluciones." << endl;
+		}
+		else {
+			cout << "El sistema no tiene solucion." << endl;
+		}
 	}
-
-
 }
+
