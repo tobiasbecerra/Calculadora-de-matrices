@@ -332,13 +332,10 @@ char signonum(float n) {
 	return signo;
 }
 
-
 void sistema() {
 
 	float x1, y1, z1, x2, y2, z2, x3, y3, z3, s1, s2, s3;
 	float delta_s, delta_x, delta_y, delta_z;
-
-
 
 	cout << "Primera ecuacion: "<<endl;
 	cout << "x1: ";
