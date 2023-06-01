@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <cctype>
 using namespace std;
 
 void cargar_primer_matriz(int matriz[10][10], int filas, int columnas) {
@@ -398,3 +399,70 @@ void sistema() {
 	}
 }
 
+void multiplicacion() {
+	float matriz1[10][10], matriz2[10][10], matriz_resultante[10][10];
+	int filas, columnas, segunda_filas, segunda_columnas;
+	char opcion;
+	cout << "\nIngrese la cantidad de FILAS y COLUMNAS que va a tener su PRIMER matriz: " << endl;
+	cout << "FILAS: ";
+	cin >> filas;
+	cout << "COLUMNAS: ";
+	cin >> columnas;
+	cout << "\nIngrese la cantidad de FILAS y COLUMNAS que va a tener su SEGUNDA matriz: " << endl;
+	cout << "FILAS: ";
+	cin >> segunda_filas;
+	cout << "COLUMNAS: ";
+	cin >> segunda_columnas;
+
+	if (columnas == segunda_filas) {
+		cout << "\nCargue su primer matriz." << endl;
+		for (int i = 0; i < filas; i++) {
+			for (int j = 0; j < columnas; j++) {
+				cout << "Digite un numero: [" << i + 1 << "][" << j + 1 << "]: ";
+				cin >> matriz1[i][j];
+			}
+		}
+		cout << "\nCargue su segunda matriz." << endl;
+		for (int i = 0; i < segunda_filas; i++) {
+			for (int j = 0; j < segunda_columnas; j++) {
+				cout << "Digite un numero: [" << i + 1 << "][" << j + 1 << "]: ";
+				cin >> matriz2[i][j];
+			}
+		}
+
+		//Multiplicacion
+
+		for (int i = 0; i < filas; i++) {
+			for (int j = 0; j < segunda_columnas; j++) {
+				matriz_resultante[i][j] = 0;
+				for (int k = 0; k < columnas; k++) {
+					matriz_resultante[i][j] += matriz1[i][k] * matriz2[k][j];
+				}
+			}
+		}
+
+		cout << "\nMatriz multiplicada" << endl;
+		for (int i = 0; i < filas; i++) {
+			cout << "| ";
+			for (int j = 0; j < segunda_columnas; j++) {
+				cout << matriz_resultante[i][j] << " ";
+			}
+			cout << "|";
+			cout << "\n";
+		}
+	}
+	else {
+		cout << "\nLa multiplicacion de matrices no se puede realizar porque el numero de columnas de su primer matriz no es igual al numero de filas de su segunda matriz. Vuelva a intentarlo." << endl;
+		cout << "\nDesea volver a intentarlo? (S / N): ";
+		cin >> opcion;
+		opcion = toupper(opcion);
+
+		if (opcion == 'S') {
+			return multiplicacion();
+		}
+		else {
+			return;
+		}
+	}
+
+}
