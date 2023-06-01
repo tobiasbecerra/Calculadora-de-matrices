@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <cctype>
+#include <cmath>
 using namespace std;
 
 void cargar_primer_matriz(int matriz[10][10], int filas, int columnas) {
